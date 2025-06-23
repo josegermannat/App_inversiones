@@ -1,10 +1,10 @@
 import "../../styles/components/CardCotizaciones.css";
-
+import { Card3DEffect } from "../ui/Card3DEffect";
 
 export default function CardCotizaciones() {
   return (
-    <div className="card-home home__cotizaciones">
+    <Card3DEffect className="card-home home__cotizaciones">
       Cotizaciones
-    </div>
+    </Card3DEffect>
   );
 }

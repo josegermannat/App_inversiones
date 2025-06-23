@@ -1,0 +1,42 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.button__icon {
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Estilo para el botón "Ingresar" */
+.button--primary {
+  background-color: #38ac9c;
+  color: #0F172A;
+}
+
+.button--primary:hover {
+  background-color: #26c4af;
+}
+
+/* Estilo para el botón "Retirar" */
+.button--secundary {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #345e59;
+  box-shadow: 0 0 1px #345e59;
+}
+
+.button--secundary:hover {
+  background-color: #bc3535;
+}

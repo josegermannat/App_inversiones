@@ -8,13 +8,15 @@ import {
   faRightLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
+import { Card3DEffect } from "../ui/Card3DEffect";
 
 
  import { SidebarButton } from "../ui/SidebarButton";
  export default function SidebarMenu() {
   return (
-    <div className="card-home home__menu">
-   <div className="menu__titulo">
+    <Card3DEffect className="card-home home__menu">
+   
+         <div className="menu__titulo">
     <h2>Menu</h2>
     </div>
       <div>
@@ -28,6 +30,7 @@ import {
 
 <SidebarButton ruta="/movimientos" icon={<FontAwesomeIcon icon={faRightLeft} />} texto="Movimientos" />
          </div>
-    </div>
+
+    </Card3DEffect>
   );
 }

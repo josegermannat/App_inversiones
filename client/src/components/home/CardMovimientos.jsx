@@ -1,10 +1,10 @@
 import "../../styles/components/CardMovimientos.css";
 
-
+import { Card3DEffect } from "../ui/Card3DEffect";
 export default function CardMovimientos() {
   return (
-    <div className="card-home home__movimientos">
+    <Card3DEffect className="card-home home__movimientos">
       Movimientos
-    </div>
+    </Card3DEffect>
   );
 }

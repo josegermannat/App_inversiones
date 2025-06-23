@@ -4,4 +4,78 @@
   grid-row: span 2 / span 2;
   grid-column-start: 2;
   grid-row-start: 2;
+background-color: none;
+  display: flex;
+  gap: 2%;
+}
+
+.home__cartera h2 {
+  font-size: 3rem;
+  color:#1EA392 ;
+  text-shadow: 0 0 3.5px #1EA392;
+
+}
+.cartera__dinero{
+  width: 60%;
+  height: 100%;
+  padding: 20px;
+}
+
+.cartera__dinero > div{
+width: 100%;
+height: 90%;
+padding: 15px 10px;
+}
+.dinero__container{
+  height: 50%;
+  width: 100%;
+    display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 8%;
+}
+.dinero__buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ height: 50%;
+ width: 100%;
+ gap: 10%;
+}
+.dinero__container span{
+  font-size: 3.2rem;
+  color:#cad5dec1 ;
+  text-shadow:0 0 2.5px #7B8790;
+}
+.dinero__container .dinero-icon{
+  font-size: 3.5rem;
+  color: #725A9F;
+ filter: drop-shadow(0 0 1px #7B8790);
+}
+
+
+
+.cartera__rentabilidad{
+  width: 40%;
+  padding: 20px;
+}
+
+.container__rentabilidades{
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  padding-left: 15px;
+  height: 80%;
+  width: 100%;
+ gap: 10px
+ ;
+}
+.cartera__rentabilidad div  span{
+  font-size: 3.2rem;
+  color: #1EA392;
+}
+.cartera__rentabilidad div .rentabilidad__dinero{
+  font-size: 1.8rem;
 }

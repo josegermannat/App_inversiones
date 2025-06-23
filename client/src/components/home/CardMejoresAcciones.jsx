@@ -1,10 +1,10 @@
 import "../../styles/components/CardMejoresAcciones.css";
-
+import { Card3DEffect } from "../ui/Card3DEffect";
 
 export default function CardMejoresAcciones() {
   return (
-    <div className="card-home home__mejores-acciones">
+    <Card3DEffect className="card-home home__mejores-acciones">
       Mejores acciones
-    </div>
+    </Card3DEffect>
   );
 }

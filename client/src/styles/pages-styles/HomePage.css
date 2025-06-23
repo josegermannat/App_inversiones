@@ -9,12 +9,17 @@
   padding: 12px;
 }
 
-.card-home{
-  background-color:#21282C ;
+.card-home {
+  background-color: #21282C;
   border: 1px solid #21282C;
   border-radius: 15px;
   padding: 10px;
+  transition: transform 0.1s ease, border 1s ease;
+  cursor: pointer;
+
 }
+.card-home:hover{
+  border: 1px solid #38ac9c ;
 
-
+}
 
