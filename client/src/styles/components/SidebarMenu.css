@@ -1,0 +1,12 @@
+.home__menu {
+  grid-row: span 7 / span 7;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.menu__titulo{
+    font-size: 1.8rem;
+    text-align: start;
+    color: #9AAFB8;
+    padding: 10px;
+}

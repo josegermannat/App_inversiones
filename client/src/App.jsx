@@ -1,10 +1,8 @@
 import "./styles/main.css";
+import "./styles/reset.css";
+import  {HomePage} from "./pages/HomePage";
 function App() {
- 
-return(
-<div>HOLA MUNDO</div>
-)
-
+   return <HomePage />
 }
 
 export default App
