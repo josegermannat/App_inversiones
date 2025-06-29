@@ -2,10 +2,10 @@
   grid-row: span 3 / span 3;
   grid-column-start: 5;
   grid-row-start: 2;
-  padding: 20px;
+  padding: 25px;
 }
 .top-cotizaciones-scroll {
-  max-height: 260px; /* o el valor que quieras */
+  max-height: 250px; /* o el valor que quieras */
   overflow-y: auto;
   scrollbar-width: none; /* Oculta barra en Firefox */
 }
