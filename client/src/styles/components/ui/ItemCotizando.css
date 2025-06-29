@@ -1,0 +1,12 @@
+
+.positivo {
+  color: #2dd4bf;
+}
+
+.negativo {
+  color: #f87171;
+}
+
+.item-cotizando__precio {
+  font-size: 0.8rem;
+}

@@ -2,4 +2,48 @@
   grid-row: span 3 / span 3;
   grid-column-start: 5;
   grid-row-start: 2;
+  padding: 20px;
+}
+.top-cotizaciones-scroll {
+  max-height: 260px; /* o el valor que quieras */
+  overflow-y: auto;
+  scrollbar-width: none; /* Oculta barra en Firefox */
+}
+
+/* Oculta barra en Chrome */
+.top-cotizaciones-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+
+.home__mejores-acciones h2{
+ 
+    font-size: 2.3rem;
+  color:#1EA392 ;
+  text-shadow: 0 0 3.5px #1EA392;
+  padding: 15px;
+  margin-bottom: 7px;
+  
+}
+.tabla-mejores {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  color: #e2e8f0;
+}
+
+.tabla-mejores th,
+.tabla-mejores td {
+  font-size: 1.3rem;
+  padding: 1.4rem 1.2rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tabla-mejores th {
+  background-color: #1ea3910f;
+  text-align: left;
+  font-size: 1.5rem;
+  text-shadow: 0 0 4px #c6e1de;
+  
 }
