@@ -5,7 +5,7 @@ export function ItemCotizando({ nombre, rendimiento, precio,picoDePrecio }) {
   const isPositive = rendimiento >= 0;
 
     return (
-    <tr>
+    <tr className="item-cotizando">
       <td>{nombre}</td>
       <td className={isPositive ? "positivo" : "negativo"}>
         {isPositive ? "▲" : "▼"} {Math.abs(rendimiento).toFixed(2)} %

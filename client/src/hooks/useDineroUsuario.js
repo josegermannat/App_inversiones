@@ -12,5 +12,9 @@ export function useDineroUsuario() {
     setDinero((prev) => Math.max(prev - monto, 0));
   };
 
-  return { dinero, ingresarDinero, retirarDinero };
+  const retirarTodoElDinero = () => {
+    setDinero((prev) => prev - prev)
+  }
+
+  return { dinero, ingresarDinero, retirarDinero,retirarTodoElDinero };
 }

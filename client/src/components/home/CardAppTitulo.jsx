@@ -4,6 +4,8 @@ import "../../styles/components/CardTitulo.css";
 import { TextPlugin } from "gsap/TextPlugin";
 import {  useEffect } from "react";
 import { SplitText } from "gsap/all";
+import { Button } from "../ui/Button";
+
 
 export default function CardAppTitulo() {
 gsap.registerPlugin(TextPlugin);
@@ -37,7 +39,18 @@ useEffect(() => {
 
   return (
     <div className="home__title">
-        <h1 className="title">Simulador de inveriones</h1>     
+      <div className="container__title">
+   <h1 className="title">Simulador de inveriones</h1>    
+      </div>
+        <div className="container__login">
+                <Button
+                 contenido={'Iniciar Seccion'}
+                ></Button>
+                <Button
+                 contenido={'Registrarse'}
+                 variant="secundary"
+                ></Button>
+        </div>
     </div>
   );
 }

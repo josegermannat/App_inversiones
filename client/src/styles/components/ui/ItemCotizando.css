@@ -10,3 +10,10 @@
 .item-cotizando__precio {
   font-size: 0.8rem;
 }
+
+.item-cotizando{
+  transition: all ease-in-out 0.3s;
+}
+.item-cotizando:hover{
+background-color: #273136;
+}

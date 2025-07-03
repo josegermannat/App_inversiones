@@ -12,11 +12,11 @@ export default function CardCartera({
   rentabilidadDinero = 0,
   rentabilidadPorcentaje = 0
 }) {
-  const { dinero, ingresarDinero, retirarDinero } = useDineroUsuario();
+  const { dinero, ingresarDinero, retirarDinero,retirarTodoElDinero } = useDineroUsuario();
   const { modalConfig, abrirModalIngresar, abrirModalRetirar, cerrarModal, crearHandleConfirmar } = useModalDinero();
   
   const handleConfirmarTransaccion = crearHandleConfirmar(ingresarDinero, retirarDinero);
-
+  
   return (
     <>
       <div className="home__cartera">
@@ -58,6 +58,7 @@ export default function CardCartera({
 
       {modalConfig.mostrar && (
         <ModalDinero 
+         onRetirar={retirarTodoElDinero}
           onClose={cerrarModal} 
           onConfirmar={handleConfirmarTransaccion}
           modo={modalConfig.modo}

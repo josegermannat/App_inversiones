@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../../styles/components/ui/ModalIngresoDinero.css";
 
-export default function ModalDinero({ onClose, onConfirmar, modo = "ingresar" }) {
+export default function ModalDinero({ onClose, onConfirmar,onRetirar, modo = "ingresar" }) {
   const montos = [1000, 5000, 10000];
   const [montoManual, setMontoManual] = useState("");
 
@@ -12,6 +12,7 @@ export default function ModalDinero({ onClose, onConfirmar, modo = "ingresar" })
       onClose();
     }
   };
+
 
   const textos = {
     ingresar: {
@@ -56,6 +57,12 @@ export default function ModalDinero({ onClose, onConfirmar, modo = "ingresar" })
         />
 
         <div className="modal-actions">
+        {modo === 'retirar' &&   <button onClick={() => {
+            onRetirar() 
+            onClose() }}>
+              Retirar Todo
+              
+              </button>}
           <button onClick={onClose}>Cancelar</button>
           <button onClick={handleManualConfirmar}>{config.botonConfirmar}</button>
         </div>

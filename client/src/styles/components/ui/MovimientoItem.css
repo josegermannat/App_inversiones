@@ -1,0 +1,72 @@
+/* src/styles/components/ui/MovimientoItem.css */
+
+.movimiento-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 8px;
+  background-color: #21282C;
+  border-bottom: 2px solid #2A3236;
+  border-radius: 6px;
+  color: #B9C4C9;
+  font-size: 1.2rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Pseudo-elemento para crear la franja */
+.movimiento-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+    background-color: #273136;
+  transform: translateX(100%);
+  transition: transform 0.4s ease;
+  z-index: 1;
+}
+
+/* Efecto hover - desliza la franja */
+.movimiento-item:hover::before {
+  transform: translateX(0);
+}
+
+/* Asegurar que el contenido esté por encima de la franja */
+.movimiento-item > * {
+  position: relative;
+  z-index: 2;
+}
+
+.movimiento-item__info {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.movimiento-item__tipo {
+  font-weight: bold;
+  color: #9AAFB8;
+}
+
+.movimiento-item__simbolo {
+  font-style: italic;
+}
+
+.movimiento-item__cantidad {
+  color: #ddd;
+}
+
+.movimiento-item__monto {
+  color: #73c991;
+}
+
+.movimiento-item__fecha {
+  font-size: 0.8rem;
+  color: #88969c;
+}

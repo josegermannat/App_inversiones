@@ -1,9 +1,9 @@
 import express from 'express';
-import { obtenerCotizaciones } from '../controllers/cotizaciones.controller.js';
+import { MyControladorDeCotizaciones } from '../controllers/cotizaciones.controller.js';
 
 const router = express.Router();
-
+const controlador = new MyControladorDeCotizaciones();
 // POST /api/cotizaciones
-router.post('/', obtenerCotizaciones);
+router.post('/', (req,res) => controlador.getCotizaciones(req,res));
 
 export default router;

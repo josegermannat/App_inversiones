@@ -1,6 +1,6 @@
 
 .home__title { 
-  grid-column: span 4 / span 3;
+  grid-column: span 6 / span 3;
   display: flex;
   justify-content: start;
   align-items: center;
@@ -13,4 +13,24 @@
  color:#9AAFB8 ;
   font-weight: 500;
   text-shadow:0 0 4px #9AAFB8;
+}
+
+.container__title{
+  width: 80%;
+  display: flex;
+  padding: 10px;
+}
+
+.container__login {
+  display: flex;
+  gap: 5%;
+  padding: 10px;
+}
+
+.container__login > button {
+    font-size: 1.2rem;
+  padding: 12px 10px;
+  width: 160px;
+  display: flex;
+  justify-content: center;
 }
