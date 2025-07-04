@@ -54,7 +54,7 @@ export default function CardMejoresAcciones({ cotizaciones }) {
           </>
         ) : (
           <>
-            <h2 className="indicador-rojo">Peores Acciones</h2>
+            <h2 style={{color:'#ff5555'}}>Peores Acciones</h2>
             <div className="top-cotizaciones-scroll">
               <table className="tabla-mejores">
                 <thead>

@@ -1,4 +1,4 @@
-.modal-overlay {
+.modal-auth-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -12,54 +12,28 @@
   z-index: 1000;
 }
 
-.modal-content {
+.modal-auth {
   background-color: #1B2123;
   border: 1px solid #2C3437;
   border-radius: 12px;
   padding: 30px 40px;
   width: 95%;
-  max-width: 600px;
-  min-height: 350px;
+  max-width: 400px;
+  min-height: 300px;
   color: #9AAFB8;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
   animation: fadeIn 0.3s ease-in-out;
 }
 
-.modal-title {
+.modal-auth h2 {
   font-size: 1.8rem;
   font-weight: 500;
-  margin-bottom: 24px;
-  text-align: center;
-  height: 20%;
-}
-
-.modal-options {
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
   margin-bottom: 30px;
-  height: 30%;
+  text-align: center;
+  color: #fff;
 }
 
-.modal-options button {
-  background-color: #2C3437;
-  border: 1px solid #3F494D;
-  color: #9AAFB8;
-  padding: 15px 12px;
-  flex: 1;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1.1rem;
-  font-weight: 500;
-  transition: all 0.2s ease-in-out;
-}
-
-.modal-options button:hover {
-  background-color: #3F494D;
-  transform: translateY(-1px);
-}
-
-.modal-input {
+.modal-auth input {
   width: 100%;
   padding: 15px;
   border: 1px solid #3F494D;
@@ -67,49 +41,79 @@
   background-color: #2C3437;
   color: #fff;
   font-size: 1.1rem;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
 }
 
-.modal-input:focus {
+.modal-auth input:focus {
   outline: none;
   border-color: #9AAFB8;
 }
 
-.modal-actions {
-  display: flex;
-  justify-content: space-around;
-  gap: 10px;
+.modal-auth input::placeholder {
+  color: #9AAFB8;
+  opacity: 0.7;
 }
 
-.modal-actions button {
+.modal-auth button {
+  width: 100%;
+  padding: 14px 24px;
+  margin-top: 10px;
   background-color: #9AAFB8;
   color: #1B2123;
-  padding: 14px 24px;
   border: none;
-  border-radius: 8px;
   font-weight: bold;
   font-size: 1rem;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
 
-.modal-actions button:hover {
+.modal-auth button:hover {
   background-color: #B3C6D1;
   transform: translateY(-1px);
 }
 
-.modal-actions button:first-child {
+/* Botón secundario (si tienes uno para "Cancelar" o "Cerrar") */
+.modal-auth .btn-secondary {
   background-color: transparent;
   color: #9AAFB8;
   border: 1px solid #3F494D;
+  margin-top: 10px;
 }
 
-.modal-actions button:first-child:hover {
+.modal-auth .btn-secondary:hover {
   background-color: #2C3437;
   color: #fff;
+  transform: translateY(-1px);
 }
 
+/* Separador para alternar entre Login/Register */
+.modal-auth .auth-toggle {
+  text-align: center;
+  margin-top: 20px;
+  color: #9AAFB8;
+}
+
+.modal-auth .auth-toggle button {
+  background: none;
+  border: none;
+  color: #9AAFB8;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 0.9rem;
+  padding: 0;
+  margin: 0;
+  width: auto;
+}
+
+.modal-auth .auth-toggle button:hover {
+  color: #fff;
+  transform: none;
+}
+
+/* Animación de entrada */
 @keyframes fadeIn {
   from {
     opacity: 0;

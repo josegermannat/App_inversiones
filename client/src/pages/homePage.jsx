@@ -1,7 +1,7 @@
 import "../styles/pages-styles/HomePage.css";
 import {
   Menu,
-  CardAppTitulo,
+CardHeader,
   CardCartera,
   CardCotizaciones,
   CardMejoresAcciones,
@@ -17,7 +17,7 @@ export function HomePage() {
   return (
     <div className="home__layout">
       <Menu />
-      <CardAppTitulo />
+      <CardHeader />
       <CardCartera />
       <CardCotizaciones cotizaciones={cotizaciones} />
       <CardMejoresAcciones cotizaciones={cotizaciones} />
