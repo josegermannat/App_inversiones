@@ -1,0 +1,36 @@
+.tabla-acciones-usuario {
+  width: 100%;
+  border-collapse: collapse;
+  color: #fff;
+  background: transparent;
+}
+
+.tabla-acciones-usuario th,
+.tabla-acciones-usuario td {
+  font-size: 1.2rem;
+  padding: 1.2rem 1.6rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.tabla-acciones-usuario th {
+  background-color: #1ea39218;
+  font-size: 1.3rem;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  text-shadow: 0 0 3px #1EA39244;
+}
+
+.acciones-scroll {
+  max-height: 320px;
+  overflow-y: auto;
+  scrollbar-width: none; /* Oculta barra en Firefox */
+}
+
+.acciones-scroll::-webkit-scrollbar {
+  display: none; /* Oculta barra en Chrome */
+}
+
+.acciones-scroll::-webkit-scrollbar-thumb {
+  background: #1EA392;
+  border-radius: 4px;
+} 

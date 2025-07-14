@@ -1,12 +1,12 @@
 import "../styles/pages-styles/HomePage.css";
 import {
   Menu,
-CardHeader,
+  CardHeader,
   CardCartera,
   CardCotizaciones,
   CardMejoresAcciones,
   CardMovimientos,
-} from "../components/home";
+} from "../components/Pages";
 import { useCotizaciones } from "../hooks/useCotizaciones";
 
 
@@ -15,13 +15,15 @@ export function HomePage() {
   const cotizaciones = useCotizaciones()
 
   return (
+
     <div className="home__layout">
       <Menu />
-      <CardHeader />
+      <CardHeader titulo="Simulador De Inveriones" />
       <CardCartera />
       <CardCotizaciones cotizaciones={cotizaciones} />
       <CardMejoresAcciones cotizaciones={cotizaciones} />
       <CardMovimientos />
     </div>
-  );
+  
+  )
 }

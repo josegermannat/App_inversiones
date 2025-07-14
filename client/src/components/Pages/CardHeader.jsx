@@ -1,11 +1,11 @@
 
-import "../../styles/components/CardTitulo.css";
+import "../../styles/components/CardHeader.css";
 import { Button } from "../ui/Button";
 import { useState } from "react";
 import { LoginFormModal } from "../ui/LoginFormModal ";
 import { RegistroFormModal } from "../ui/RegistroFormModal ";
 import { useAnimationChars } from "../../hooks/hooksAnimations/useAnimationChars";
-export default function CardAppTitulo() {
+export default function CardHeader({titulo}) {
   useAnimationChars('.title')
   
   const [showLogin, setShowLogin] = useState(false);
@@ -15,7 +15,7 @@ export default function CardAppTitulo() {
   return (
     <div className="home__title">
       <div className="container__title">
-   <h1 className="title">Simulador de inveriones</h1>    
+   <h1 className="title">{titulo}</h1>    
       </div>
         <div className="container__login">
                 <Button
