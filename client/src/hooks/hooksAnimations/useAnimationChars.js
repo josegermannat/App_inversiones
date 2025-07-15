@@ -19,8 +19,8 @@ useEffect(() => {
         // 3. ANIMAR LAS PALABRAS CAYENDO
         gsap.to(split.chars, {
             y: 0, 
-            duration: 0.5,     
-            stagger: 0.1,
+            duration: 0.4,     
+            stagger: 0.05,
             autoAlpha:1 ,
         filter: `blur(0px)`
         });

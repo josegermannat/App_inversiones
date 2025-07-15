@@ -1,6 +1,7 @@
 import { Card } from "../ui/card";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from "recharts";
 import "../../styles/components/CardRendimientoAcciones.css";
+import { useCardAnimation } from "../../hooks/hooksAnimations/useCardAnimation";
 
 // Datos de prueba con acciones repetidas
 const accionesUsuario = [
@@ -40,8 +41,10 @@ const data = accionesAgrupadas.map(({ nombre, invertido }) => ({ name: nombre, v
 const COLORS = ["#1EA392", "#38ac9c", "#725A9F", "#9AAFB8", "#2dd4bf", "#f87171"];
 
 export default function CardRendimientoAcciones({className}) {
+  const cardRef = useCardAnimation("right", 0.3);
+
   return (
-    <div className={className}>
+    <div className={className} ref={cardRef}>
       <Card style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "center", padding: 20 }}>
         <h2 style={{ marginBottom: "1.2rem", textAlign: "center" }}>Tus Acciones</h2>
         <div className="acciones-scroll" style={{ width: "100%", marginBottom: 24 }}>

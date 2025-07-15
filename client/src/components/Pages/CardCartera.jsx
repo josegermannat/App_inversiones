@@ -3,10 +3,10 @@ import { Button } from "../ui/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSackDollar } from "@fortawesome/free-solid-svg-icons";
 import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
-import { Card3DEffect } from "../ui/Card3DEffect";
 import { useDineroUsuario } from "../../hooks/useDineroUsuario";
 import { useModalDinero } from "../../hooks/useModalConfig";
 import ModalDinero from "../ui/ModalIngresoDinero";
+import { useCardAnimation } from "../../hooks/hooksAnimations/useCardAnimation";
 
 export default function CardCartera({
   rentabilidadDinero = 0,
@@ -14,13 +14,14 @@ export default function CardCartera({
 }) {
   const { dinero, ingresarDinero, retirarDinero,retirarTodoElDinero } = useDineroUsuario();
   const { modalConfig, abrirModalIngresar, abrirModalRetirar, cerrarModal, crearHandleConfirmar } = useModalDinero();
+  const cardRef = useCardAnimation("left", 0.2);
   
   const handleConfirmarTransaccion = crearHandleConfirmar(ingresarDinero, retirarDinero);
   
   return (
     <>
-      <div className="home__cartera">
-        <Card3DEffect className="card-home cartera__dinero">
+      <div className="home__cartera" ref={cardRef}>
+        <div className="card-home cartera__dinero">
           <h2>Saldo</h2>
           <div>
             <div className="dinero__container">
@@ -45,15 +46,15 @@ export default function CardCartera({
               />
             </div>
           </div>
-        </Card3DEffect>
+        </div>
 
-        <Card3DEffect className="card-home cartera__rentabilidad">
+        <div className="card-home cartera__rentabilidad">
           <h2>Rentabilidad</h2>
           <div className="container__rentabilidades">
             <span>+{rentabilidadPorcentaje}%</span>
             <span className="rentabilidad__dinero">+${rentabilidadDinero}</span>
           </div>
-        </Card3DEffect>
+        </div>
       </div>
 
       {modalConfig.mostrar && (

@@ -1,8 +1,8 @@
 // src/components/home/CardMovimientos.jsx
 import "../../styles/components/CardMovimientos.css";
-import { Card3DEffect } from "../ui/Card3DEffect";
 import MovimientoItem from "../ui/MovimientoItem";
 import React from "react";
+import { useCardAnimation } from "../../hooks/hooksAnimations/useCardAnimation";
 
 export default function CardMovimientos({ movimientos = [{
   "tipo": "compra",
@@ -23,8 +23,10 @@ export default function CardMovimientos({ movimientos = [{
   "monto": 8750.00,
   "fecha": "2025-07-02T14:30:00Z"
 }] }) {
+  const cardRef = useCardAnimation("right", 0.5);
+
   return (
-    <Card3DEffect className="card-home home__movimientos">
+    <div ref={cardRef} className="card-home home__movimientos">
       <h2 className="card-movimientos__titulo">Movimientos recientes</h2>
       <div className="card-movimientos__lista">
         {movimientos.length === 0 ? (
@@ -35,6 +37,6 @@ export default function CardMovimientos({ movimientos = [{
           ))
         )}
       </div>
-    </Card3DEffect>
+    </div>
   );
 }
