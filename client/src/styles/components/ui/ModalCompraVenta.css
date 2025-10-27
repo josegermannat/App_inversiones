@@ -1,0 +1,130 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* 👈 Aumentá el z-index */
+}
+.modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  background-color: #1B2123;
+  border: 1px solid #2C3437;
+  border-radius: 12px;
+  padding: 30px 40px;
+  width: 30%;
+  max-width: 450px;
+  min-height: 350px;
+  color: #9AAFB8;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 0.3s ease-in-out;
+  gap: 15px;
+}
+
+.modal-title {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 24px;
+  text-align: center;
+  height: 20%;
+}
+
+.modal-options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  gap: 15px;
+  margin-bottom: 30px;
+  height: 30%;
+}
+
+.modal-options button {
+  background-color: #2C3437;
+  border: 1px solid #3F494D;
+  color: #9AAFB8;
+  padding: 15px 12px;
+  flex: 1;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+.modal-options button:hover {
+  background-color: #3F494D;
+  transform: translateY(-1px);
+}
+
+.modal-input {
+  width: 300px;
+  padding: 15px;
+  border: 1px solid #3F494D;
+  border-radius: 8px;
+  background-color: #2C3437;
+  color: #fff;
+  font-size: 1.1rem;
+ margin: 0;
+  box-sizing: border-box;
+}
+
+.modal-input:focus {
+  outline: none;
+  border-color: #9AAFB8;
+}
+
+.modal-actions {
+  display: flex;
+
+
+}
+
+.modal-actions button {
+  background-color: #9AAFB8;
+  color: #1B2123;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.modal-actions button:hover {
+  background-color: #B3C6D1;
+  transform: translateY(-1px);
+}
+
+.modal-actions button:first-child {
+  background-color: transparent;
+  color: #9AAFB8;
+  border: 1px solid #3F494D;
+}
+
+.modal-actions button:first-child:hover {
+  background-color: #2C3437;
+  color: #fff;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

@@ -42,7 +42,7 @@ overflow: auto;
 }
 
 .cotizaciones-scroll {
-  max-height: 500px; /* o el valor que quieras */
+  max-height: 100%; /* o el valor que quieras */
   overflow-y: auto;
   scrollbar-width: none; /* Oculta barra en Firefox */
 }

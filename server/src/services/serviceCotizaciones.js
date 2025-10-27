@@ -39,8 +39,22 @@ export function obtenerCotizaciones(symbols) {
           return {
             simbolo: stock.symbol,
             nombre: stock.name || stock.symbol,
+            exchange: stock.exchange,
+            mic_code: stock.mic_code,
+            moneda: stock.currency,
+            fecha: stock.datetime,
+            precio_apertura: parseFloat(stock.open),
+            precio_maximo: parseFloat(stock.high),
+            precio_minimo: parseFloat(stock.low),
             precio_actual: parseFloat(stock.close),
+            volumen: parseInt(stock.volume),
+            cierre_anterior: parseFloat(stock.previous_close),
+            cambio: parseFloat(stock.change),
             variacion_diaria: parseFloat(stock.percent_change) || 0,
+            volumen_promedio: parseInt(stock.average_volume),
+            mercado_abierto: stock.is_market_open,
+            cincuenta_dos_semanas: stock.fifty_two_week,
+            // Para compatibilidad con componentes existentes:
             pico_dia: parseFloat(stock.high) || 0,
             piso_dia: parseFloat(stock.low) || 0
           };

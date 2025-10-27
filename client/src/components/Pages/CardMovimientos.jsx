@@ -1,42 +1,27 @@
-// src/components/home/CardMovimientos.jsx
-import "../../styles/components/CardMovimientos.css";
-import MovimientoItem from "../ui/MovimientoItem";
-import React from "react";
-import { useCardAnimation } from "../../hooks/hooksAnimations/useCardAnimation";
+import  '../../styles/components/CardMovimientos.css'
+import { useCardAnimation } from '../../hooks/hooksAnimations/useCardAnimation'
+function CardMovimientos({title, movimientos = [] }) {
+   const cardRef  = useCardAnimation('up',0.1)
 
-export default function CardMovimientos({ movimientos = [{
-  "tipo": "compra",
-  "simbolo": "AAPL",
-  "cantidad": 50,
-  "monto": 8750.00,
-  "fecha": "2025-07-02T14:30:00Z"
-},{
-  "tipo": "compra",
-  "simbolo": "AAPL",
-  "cantidad": 50,
-  "monto": 8750.00,
-  "fecha": "2025-07-02T14:30:00Z"
-},{
-  "tipo": "compra",
-  "simbolo": "AAPL",
-  "cantidad": 50,
-  "monto": 8750.00,
-  "fecha": "2025-07-02T14:30:00Z"
-}] }) {
-  const cardRef = useCardAnimation("right", 0.5);
-
-  return (
-    <div ref={cardRef} className="card-home home__movimientos">
-      <h2 className="card-movimientos__titulo">Movimientos recientes</h2>
-      <div className="card-movimientos__lista">
-        {movimientos.length === 0 ? (
-          <p className="card-movimientos__vacio">No hay movimientos aún.</p>
-        ) : (
-          movimientos.map((mov, index) => (
-            <MovimientoItem key={index} movimiento={mov} />
-          ))
-        )}
-      </div>
-    </div>
-  );
+return(
+            <div className="card-movimientos" ref={cardRef}>
+                <h2>{title}</h2>
+                <div className="card-movimientos__container">
+                    {movimientos.length === 0 ? (
+                        <p className="card-movimientos__vacio">No hay movimientos aún.</p>
+                    ) : (
+                    movimientos.map((movimiento) => (
+                        <div key={movimiento.id} className="card-movimientos__item">
+                            <p className="card-movimientos__item__tipo">{movimiento.tipo}</p>
+                            <p className="card-movimientos__item__simbolo">{movimiento.accion}</p>
+                            <p className="card-movimientos__item__cantidad">{movimiento.cantidad}</p>
+                            <p className="card-movimientos__item__precio_unitario">{movimiento.precio_unitario}</p>
+                            <p className="card-movimientos__item__fecha_hora">{movimiento.fecha_hora}</p>
+                        </div>
+                    )))}
+                </div>
+            </div>
+        )
 }
+export default CardMovimientos;
+

@@ -1,5 +1,6 @@
 import { obtenerCotizaciones } from "../services/serviceCotizaciones.js";
 
+
 export class MyControladorDeCotizaciones {
   constructor() {}
 
@@ -15,5 +16,4 @@ export class MyControladorDeCotizaciones {
       res.status(500).json({ error: "No se pudieron obtener las cotizaciones." });
     });
 }
-
 }

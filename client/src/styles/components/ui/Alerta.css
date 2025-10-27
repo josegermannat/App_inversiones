@@ -1,0 +1,31 @@
+.alerta {
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-top: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Éxito → verde aqua (como tu tema) */
+  .alerta-success {
+    background-color: rgba(0, 255, 170, 0.1); /* leve fondo translúcido */
+    color: #00ffab; /* aqua brillante */
+    border: 1px solid #00ffab;
+  }
+  
+  /* Error → rojo tenue pero visible */
+  .alerta-error {
+    background-color: rgba(255, 0, 0, 0.1);
+    color: #ff5c5c;
+    border: 1px solid #ff5c5c;
+  }
+  
+  /* Info → azul turquesa */
+  .alerta-info {
+    background-color: rgba(0, 200, 255, 0.1);
+    color: #33cfff;
+    border: 1px solid #33cfff;
+  }
+  

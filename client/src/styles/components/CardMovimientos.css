@@ -1,31 +1,106 @@
-
-.home__movimientos {
-  grid-row: span 3 / span 3;
-
-     grid-column: span 2 / span 2;
-  grid-row-start: 5;
+.card-movimientos {
+  grid-column: span 6 / span 6;
+  grid-row: span 6 / span 6;
+  grid-column-start: 2;
+  grid-row-start: 2;
   display: flex;
   flex-direction: column;
+  gap: 20px;
+  padding: 28px;
+  overflow: auto;
+  background-color: #21282C;
+  border: 1px solid #21282C;
+  border-radius: 15px;
+  transition: transform 0.1s ease, border 1s ease;
+  cursor: pointer;
+}
+
+/* Título de la tabla */
+.card-movimientos h2 {
+  color: #4DB8AC;
+  margin-bottom: 10px;
+}
+
+/* src/styles/components/ui/MovimientoItem.css */
+
+.card-movimientos__item {
+  display: grid;
+  grid-template-columns: 20% 15% 15% 25% 35%;
+  gap: 20px;
   align-items: center;
-  gap: 5%;
   padding: 20px;
-
+  margin-bottom: 8px;
+  background-color: #21282C;
+  border-bottom: 2px solid #2A3236;
+  border-radius: 6px;
+  color: #B9C4C9;
+  font-size: 1.2rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
-.home__movimientos h2 {
-  font-size: 2.5rem;
-  color:#1EA392 ;
-  text-shadow: 0 0 3.5px #1EA392;
 
+/* Pseudo-elemento para crear la franja */
+.card-movimientos__item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #273136;
+  transform: translateX(100%);
+  transition: transform 0.4s ease;
+  z-index: 1;
 }
-.card-movimientos__lista > p{
-  font-size: 2.2rem;
+
+/* Efecto hover - desliza la franja */
+.card-movimientos__item:hover::before {
+  transform: translateX(0);
+}
+
+/* Asegurar que el contenido esté por encima de la franja */
+.card-movimientos__item > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Columnas individuales con alineación específica */
+.movimiento-item__tipo {
+  font-weight: bold;
   color: #9AAFB8;
-  text-shadow:0 0 5px #fff;
+  text-align: left;
 }
-.card-movimientos__lista{
-  display: flex;
-  justify-content: start;
-  flex-direction: column;
-  width: 100%;
-  height: 80%;
+
+.card-movimientos__item__simbolo {
+  font-style: italic;
+  text-align: center;
+  color: #B9C4C9;
 }
+
+.card-movimientos__item__cantidad {
+  color: #ddd;
+  text-align: center;
+}
+
+.card-movimientos__item__monto {
+  color: #73c991;
+  text-align: right;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums; /* Números monoespaciados */
+}
+
+.card-movimientos__item__fecha {
+  font-size: 0.9rem;
+  color: #88969c;
+  text-align: right;
+  white-space: nowrap;
+}
+.card-movimientos__vacio {
+  font-size: 3rem;
+  text-shadow: 0 0 2px #fff;
+  color: #cad5de12 ;
+  text-align: center;
+  padding: 20px;
+}
+

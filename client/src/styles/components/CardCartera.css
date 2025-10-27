@@ -44,10 +44,19 @@ padding: 15px 10px;
  gap: 10%;
  
 }
-.dinero__container span{
-  font-size: 3.2rem;
+ .dinero-usuario{
+  font-size: 2rem;
+  text-align: center;
   color:#cad5dec1 ;
+  text-shadow:0 0 2.5px #a8b7c2;
+}
+
+
+.no-register{
+  font-size: 2.6rem;
+  color:#cad5de3b ;
   text-shadow:0 0 2.5px #7B8790;
+  text-align: center;
 }
 .dinero__container .dinero-icon{
   font-size: 3.5rem;

@@ -7,17 +7,28 @@ import { useDineroUsuario } from "../../hooks/useDineroUsuario";
 import { useModalDinero } from "../../hooks/useModalConfig";
 import ModalDinero from "../ui/ModalIngresoDinero";
 import { useCardAnimation } from "../../hooks/hooksAnimations/useCardAnimation";
+import { useUsuario } from "../../context/usuarioContext/useUsuarioContext.js";
+import { useRendimientoTotal } from "../../hooks/useRendimientoTotal";
 
 export default function CardCartera({
-  rentabilidadDinero = 0,
-  rentabilidadPorcentaje = 0
+  portafolio = null,
 }) {
-  const { dinero, ingresarDinero, retirarDinero,retirarTodoElDinero } = useDineroUsuario();
-  const { modalConfig, abrirModalIngresar, abrirModalRetirar, cerrarModal, crearHandleConfirmar } = useModalDinero();
+
+
+ 
+      
+
+  const {usuario} = useUsuario()
+  const { dinero,saldo , ingresarDinero, retirarDinero,retirarTodoElDinero } = useDineroUsuario();
+  const { modalConfig, abrirModalIngresar, abrirModalRetirar, cerrarModal, handleConfirmar } = useModalDinero();
   const cardRef = useCardAnimation("left", 0.2);
   
-  const handleConfirmarTransaccion = crearHandleConfirmar(ingresarDinero, retirarDinero);
-  
+  // Calcular rendimiento total del portafolio
+  const totales = useRendimientoTotal(portafolio);
+
+  const handleConfirmarTransaccion = handleConfirmar(ingresarDinero, retirarDinero);
+
+ 
   return (
     <>
       <div className="home__cartera" ref={cardRef}>
@@ -28,7 +39,8 @@ export default function CardCartera({
               <span>
                 <FontAwesomeIcon className="dinero-icon" icon={faSackDollar} />
               </span>
-              <span>${dinero.toLocaleString("es-AR")}</span>
+              <span className={usuario? 'dinero-usuario' : 'no-register'}>{usuario? `$ Saldo  ${dinero.toLocaleString("es-AR")}` : 'usuario no registrado'}</span>
+             {saldo &&     <span className={'dinero-usuario'}> {`$ Saldo Invertido ${saldo.saldo_invertido.toLocaleString("es-AR")}`}</span>}
             </div>
             <div className="dinero__buttons">
               <Button 
@@ -36,6 +48,7 @@ export default function CardCartera({
                 icon={<FontAwesomeIcon icon={faArrowDown} />} 
                 variant="primary"
                 onClick={abrirModalIngresar}
+                disabled={usuario? false : true}
               />
               
               <Button 
@@ -43,6 +56,7 @@ export default function CardCartera({
                 icon={<FontAwesomeIcon icon={faArrowUp} />} 
                 variant="secundary"
                 onClick={abrirModalRetirar}
+                disabled={usuario? false : true}
               />
             </div>
           </div>
@@ -51,8 +65,8 @@ export default function CardCartera({
         <div className="card-home cartera__rentabilidad">
           <h2>Rentabilidad</h2>
           <div className="container__rentabilidades">
-            <span>+{rentabilidadPorcentaje}%</span>
-            <span className="rentabilidad__dinero">+${rentabilidadDinero}</span>
+            <span>{totales.rentabilidad_porcentaje ? `${totales.rentabilidad_porcentaje > 0 ? '+' : ''}${totales.rentabilidad_porcentaje.toFixed(2)}%` : '0%'}</span>
+            <span className="rentabilidad__dinero">{totales.rentabilidad_dinero ? `${totales.rentabilidad_dinero > 0 ? '+' : ''}$${totales.rentabilidad_dinero.toLocaleString("es-AR")}` : '$0'}</span>
           </div>
         </div>
       </div>

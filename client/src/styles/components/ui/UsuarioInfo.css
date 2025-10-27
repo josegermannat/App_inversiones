@@ -1,0 +1,22 @@
+.usuario-nombre {
+    font-size: 30px;
+    color: #f5f5f5;             /* texto claro */
+    background: rgba(255, 255, 255, 0.05); /* leve fondo translúcido */
+    padding: 10px 14px;
+    border-radius: 8px;        /* estilo pill */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    letter-spacing: 0.3px;
+    backdrop-filter: blur(6px); /* efecto glass sutil */
+    transition: all 0.3s ease;
+    cursor: default;
+  }
+  
+  .usuario-nombre:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);  /* levanta un poquito */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+  }
+  .usuario-nombre-destacado {
+    color: #3bf0d8;   /* el color especial solo para el nombre */
+    font-style: italic;
+  }

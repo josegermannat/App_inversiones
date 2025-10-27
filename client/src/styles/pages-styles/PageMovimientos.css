@@ -1,0 +1,10 @@
+.movimientos__layout {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    gap: 8px;
+    background-color: #1B2123;
+    padding: 12px;
+}

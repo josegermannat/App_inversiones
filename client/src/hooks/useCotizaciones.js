@@ -1,42 +1,94 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { accionesUSA } from "../constants/symbols";
+import { useUsuario } from "../context/usuarioContext/useUsuarioContext.js";
+import { usePortfolioContext } from "../context/portfolioContext/PortfolioContext";
 
 export function useCotizaciones() {
+  const location = useLocation();
   const [cotizaciones, setCotizaciones] = useState(() => {
-    // Al iniciar, intentamos cargar datos anteriores del localStorage
     const datosGuardados = localStorage.getItem("cotizacionesCache");
     return datosGuardados ? JSON.parse(datosGuardados) : [];
   });
 
+  const { usuario } = useUsuario() ?? {};
+  const { notificarActualizacionPortfolio } = usePortfolioContext();
+
+  // -----------------------------
+  // 1️⃣ Fetch de cotizaciones siempre
+  // -----------------------------
   useEffect(() => {
-    const ahora = Date.now();
-    const ultimoFetch = localStorage.getItem("ultimoFetchCotizaciones");
+    console.log('🔄 Cambio de ruta detectado:', location.pathname);
+    
+    const fetchCotizaciones = async () => {
+      try {
+        const ahora = Date.now();
+        const ultimoFetch = localStorage.getItem("ultimoFetchCotizaciones");
 
-    // Si no pasó 1 minuto, no hacemos fetch, mantenemos datos cacheados
-    if (ultimoFetch && ahora - parseInt(ultimoFetch, 10) < 60000) {
-      console.log("⏳ No se hace fetch. Usando datos cacheados.");
-      return;
-    }
+        if (ultimoFetch && ahora - parseInt(ultimoFetch, 10) < 60000) {
+          console.log("⚡ Usando cotizaciones cacheadas.");
+          return;
+        }
 
-    // Si pasó 1 minuto, hacemos fetch y actualizamos todo
-    fetch("http://localhost:3000/api/cotizaciones", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ symbols: accionesUSA })
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("✅ Datos actualizados:", data);
+        const res = await fetch("http://localhost:3000/api/cotizaciones", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ symbols: accionesUSA }),
+        });
+        const data = await res.json();
+        console.log("✅ Cotizaciones actualizadas:", data);
         setCotizaciones(data);
+
         localStorage.setItem("cotizacionesCache", JSON.stringify(data));
         localStorage.setItem("ultimoFetchCotizaciones", ahora.toString());
-      })
-      .catch((err) => {
+      } catch (err) {
         console.error("❌ Error al obtener cotizaciones:", err);
-      });
-  }, []);
+      }
+    };
+
+    fetchCotizaciones();
+  }, [location.pathname]); // Se ejecuta cuando cambia la ruta
+
+  // -----------------------------
+  // 2️⃣ Actualizar portafolio solo si hay usuario
+  // -----------------------------
+  useEffect(() => {
+    if (!usuario?.id || cotizaciones.length === 0) return;
+
+    // Delay para evitar actualización inmediata después de transacciones
+    const timeoutId = setTimeout(() => {
+      const actualizarPortafolio = async () => {
+        console.log('entramos a actulizar porfolio')
+        try {
+          const precios = cotizaciones.map(c => ({
+            simbolo: c.simbolo,
+            precio: c.precio_actual,
+          }));
+
+          const response = await fetch("http://localhost:3000/portafolio/actualizar-valores", {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ usuario_id: usuario.id, precios }),
+          });
+
+          const result = await response.json();
+          console.log("📊 Portafolio actualizado:", result);
+          
+          // Notificar que el portafolio fue actualizado para que se refresque
+          if (result.success) {
+            notificarActualizacionPortfolio();
+          }
+        } catch (err) {
+          console.error("❌ Error al actualizar portafolio:", err);
+        }
+      };
+
+      actualizarPortafolio();
+    }, 2000); // Delay de 2 segundos para evitar actualización inmediata
+
+    // Cleanup del timeout
+    return () => clearTimeout(timeoutId);
+  }, [usuario, cotizaciones, notificarActualizacionPortfolio]); // Se ejecuta cuando usuario o cotizaciones cambian
 
   return cotizaciones;
 }

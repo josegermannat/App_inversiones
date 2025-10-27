@@ -34,3 +34,15 @@
   display: flex;
   justify-content: center;
 }
+.container__usuario-logeado{ 
+  display: flex;
+  width: 500px;
+  justify-content: center;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.container__usuario-logeado button {
+  padding: 15px;
+  font-size: 20px;
+}

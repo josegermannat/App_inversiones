@@ -1,0 +1,9 @@
+.cotizaciones__filtros {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0;
+   
+}
+        

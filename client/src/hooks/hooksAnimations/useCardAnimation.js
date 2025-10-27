@@ -12,7 +12,7 @@ export function useCardAnimation(direction = "up", delay = 0) {
       opacity: 0,
       y: direction === "up" ? 50 : direction === "down" ? -50 : 0,
       x: direction === "left" ? 50 : direction === "right" ? -50 : 0,
-      scale: 0.9,
+      scale: 0.8,
       rotation: direction === "rotate" ? -5 : 0
     };
 
@@ -33,7 +33,7 @@ export function useCardAnimation(direction = "up", delay = 0) {
     return () => {
       animation.kill();
     };
-  }, [direction, delay]);
+  }, []);
 
   return cardRef;
 } 

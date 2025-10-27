@@ -38,6 +38,10 @@
   box-shadow: 0 0 1px #345e59;
 }
 
+.button--disabled{ 
+  opacity: .3;
+}
+
 .button--secundary:hover {
   background-color: #273136;
 }

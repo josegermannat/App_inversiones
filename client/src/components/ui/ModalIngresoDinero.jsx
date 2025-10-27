@@ -6,6 +6,7 @@ export default function ModalDinero({ onClose, onConfirmar,onRetirar, modo = "in
   const [montoManual, setMontoManual] = useState("");
 
   const handleManualConfirmar = () => {
+    console.log('llego aca al confirmar')
     const valor = parseInt(montoManual);
     if (!isNaN(valor) && valor > 0) {
       onConfirmar(valor);

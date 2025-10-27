@@ -11,12 +11,12 @@ export default function CardMejoresAcciones({ cotizaciones }) {
   const contentRef = useRef(null);
   const cardRef = useCardAnimation("down", 0.3);
 
-  const topAcciones = [...cotizaciones]
+  const topAcciones = [...(cotizaciones || [])]
     .filter((accion) => accion.variacion_diaria !== null)
     .sort((a, b) => b.variacion_diaria - a.variacion_diaria)
     .slice(0, 3);
 
-  const worstAcciones = [...cotizaciones]
+  const worstAcciones = [...(cotizaciones || [])]
     .filter((accion) => accion.variacion_diaria !== null)
     .sort((a, b) => a.variacion_diaria - b.variacion_diaria)
     .slice(0, 3);
@@ -64,9 +64,9 @@ export default function CardMejoresAcciones({ cotizaciones }) {
                   </tr>
                 </thead>
                 <tbody>
-                  {topAcciones.map((accion) => (
+                    {(topAcciones || []).map ((accion,id) => (
                     <ItemCotizando
-                      key={accion.simbolo}
+                      key={accion.simbolo || id}
                       nombre={accion.nombre}
                       rendimiento={accion.variacion_diaria}
                       picoDePrecio={accion.pico_dia}
@@ -94,9 +94,9 @@ export default function CardMejoresAcciones({ cotizaciones }) {
                   </tr>
                 </thead>
                 <tbody>
-                  {worstAcciones.map((accion) => (
+                  {(worstAcciones || []).map((accion,id) => (
                     <ItemCotizando
-                      key={accion.simbolo}
+                      key={accion.simbolo || id}
                       nombre={accion.nombre}
                       rendimiento={accion.variacion_diaria}
                       picoDePrecio={accion.pico_dia}

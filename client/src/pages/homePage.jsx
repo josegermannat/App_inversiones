@@ -7,23 +7,24 @@ import {
   CardMejoresAcciones,
   CardMovimientos,
 } from "../components/Pages";
-import { useCotizaciones } from "../hooks/useCotizaciones";
 
-
+import useCotizacionesContext from "../context/cotizaciones/useCotizacionesContext.js";
+import { useUsuario } from "../context/usuarioContext/useUsuarioContext";
+import { usePortafolio } from "../hooks/usePortfolio.js";
 
 export function HomePage() {
-  const cotizaciones = useCotizaciones()
+   const {cotizaciones} = useCotizacionesContext()
+   const { usuario } = useUsuario() ?? {};
+   const { portafolio } = usePortafolio(usuario?.id);
 
   return (
-
     <div className="home__layout">
-      <Menu />
-      <CardHeader titulo="Simulador De Inveriones" />
-      <CardCartera />
-      <CardCotizaciones cotizaciones={cotizaciones} />
+      <Menu />  
+      <CardHeader titulo="Simulador De Inversiones" />
+      <CardCartera portafolio={portafolio} />
+      <CardCotizaciones cotizaciones={cotizaciones} className=" home__cotizaciones" title="Preview De Cotizaciones"/>
       <CardMejoresAcciones cotizaciones={cotizaciones} />
       <CardMovimientos />
     </div>
-  
   )
 }
