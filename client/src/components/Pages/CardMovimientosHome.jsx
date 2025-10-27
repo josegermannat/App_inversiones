@@ -4,25 +4,7 @@ import MovimientoItem from "../ui/MovimientoItem";
 import React from "react";
 import { useCardAnimation } from "../../hooks/hooksAnimations/useCardAnimation";
 
-export default function CardMovimientosHome({ movimientos = [{
-  "tipo": "compra",
-  "simbolo": "AAPL",
-  "cantidad": 50,
-  "monto": 8750.00,
-  "fecha": "2025-07-02T14:30:00Z"
-},{
-  "tipo": "compra",
-  "simbolo": "AAPL",
-  "cantidad": 50,
-  "monto": 8750.00,
-  "fecha": "2025-07-02T14:30:00Z"
-},{
-  "tipo": "compra",
-  "simbolo": "AAPL",
-  "cantidad": 50,
-  "monto": 8750.00,
-  "fecha": "2025-07-02T14:30:00Z"
-}] }) {
+export default function CardMovimientosHome({ movimientos = [] }) {
   const cardRef = useCardAnimation("right", 0.5);
 
   return (
