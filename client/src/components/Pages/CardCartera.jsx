@@ -40,7 +40,7 @@ export default function CardCartera({
                 <FontAwesomeIcon className="dinero-icon" icon={faSackDollar} />
               </span>
               <span className={usuario? 'dinero-usuario' : 'no-register'}>{usuario? `$ Saldo  ${dinero.toLocaleString("es-AR")}` : 'usuario no registrado'}</span>
-             {saldo &&     <span className={'dinero-usuario'}> {`$ Saldo Invertido ${saldo.saldo_invertido.toLocaleString("es-AR")}`}</span>}
+             {saldo &&     <span className={'dinero-usuario'}> {usuario? `$ Saldo Invertido ${saldo.saldo_invertido.toLocaleString("es-AR")}` : ''}</span>}
             </div>
             <div className="dinero__buttons">
               <Button 
@@ -65,8 +65,8 @@ export default function CardCartera({
         <div className="card-home cartera__rentabilidad">
           <h2>Rentabilidad</h2>
           <div className="container__rentabilidades">
-            <span>{totales.rentabilidad_porcentaje ? `${totales.rentabilidad_porcentaje > 0 ? '+' : ''}${totales.rentabilidad_porcentaje.toFixed(2)}%` : '0%'}</span>
-            <span className="rentabilidad__dinero">{totales.rentabilidad_dinero ? `${totales.rentabilidad_dinero > 0 ? '+' : ''}$${totales.rentabilidad_dinero.toLocaleString("es-AR")}` : '$0'}</span>
+            <span>{totales.rentabilidad_porcentaje && usuario ? `${totales.rentabilidad_porcentaje > 0 ? '+' : ''}${totales.rentabilidad_porcentaje.toFixed(2)}%` : '0%'}</span>
+            <span className="rentabilidad__dinero">{totales.rentabilidad_dinero && usuario ? `${totales.rentabilidad_dinero > 0 ? '+' : ''}$${totales.rentabilidad_dinero.toLocaleString("es-AR")}` : '$0'}</span>
           </div>
         </div>
       </div>
