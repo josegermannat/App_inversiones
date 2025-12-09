@@ -21,6 +21,7 @@ export function useCotizaciones() {
     console.log('🔄 Cambio de ruta detectado:', location.pathname);
     
     const fetchCotizaciones = async () => {
+    console.log('ejecutando hook')
       try {
         const ahora = Date.now();
         const ultimoFetch = localStorage.getItem("ultimoFetchCotizaciones");

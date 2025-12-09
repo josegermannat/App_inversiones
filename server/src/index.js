@@ -31,7 +31,16 @@ app.use('/transacciones', transaccionesRoutes);
 app.use('/portafolio', portafolioRoutes);
 
 
-const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`🟢 Servidor activo en http://localhost:${PORT}`);
-});
+
+
+
+
+// Código opcional solo para desarrollo local:
+if (process.env.NODE_ENV !== 'production') {
+    const PORT = 3000;
+    app.listen(PORT, () => {
+      console.log(`🟢 Servidor activo en http://localhost:${PORT}`);
+    });
+}
+
+export default app;

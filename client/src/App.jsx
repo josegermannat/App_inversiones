@@ -10,12 +10,13 @@ function App() {
   return (
    
     <Routes>
-      <Route path="/home" element={<HomePage />} />
-      <Route path="/cartera" element={<DashboardPage />} />
-      <Route path="/cotizaciones" element={<PageCotizaciones />} />
-      <Route path="/movimientos" element={<PageMovimientos />} />
-      <Route path="/" element={<Navigate to="/home" replace />} />
-    </Routes>
+    <Route path="/" element={<HomePage />} />  {/* ← home directo */}
+    <Route path="/cartera" element={<DashboardPage />} />
+    <Route path="/cotizaciones" element={<PageCotizaciones />} />
+    <Route path="/movimientos" element={<PageMovimientos />} />
+    <Route path="*" element={<Navigate to="/" replace />} />  {/* ← fallback */}
+  </Routes>
+  
   );
 }
 
