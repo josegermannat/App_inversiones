@@ -66,7 +66,7 @@ export function useCotizaciones() {
             precio: c.precio_actual,
           }));
 
-          const response = await fetch("http://localhost:3000/portafolio/actualizar-valores", {
+          const response = await fetch("http://localhost:3000/api/portafolio/actualizar-valores", {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ usuario_id: usuario.id, precios }),

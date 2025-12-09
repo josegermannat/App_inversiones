@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const API_URL = "http://localhost:3000/saldos"; // Ajusta al puerto/back que uses
+const API_URL = "http://localhost:3000/api/saldos"; // Ajusta al puerto/back que uses
 
 export function useSaldo() {
   const [saldo, setSaldo] = useState(null);

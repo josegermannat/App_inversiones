@@ -25,11 +25,10 @@ pool.connect()
 
 
 app.use('/api/cotizaciones', cotizacionesRoutes);
-app.use("/usuarios", usuariosRoutes);
-app.use("/saldos", saldosRoutes);
-app.use('/transacciones', transaccionesRoutes);
-app.use('/portafolio', portafolioRoutes);
-
+app.use("/api/usuarios", usuariosRoutes);
+app.use("/api/saldos", saldosRoutes);
+app.use('/api/transacciones', transaccionesRoutes);
+app.use('/api/portafolio', portafolioRoutes);
 
 
 

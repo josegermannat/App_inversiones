@@ -14,7 +14,7 @@ export function usePortafolio(usuarioId) {
     setError(null);
 
     try {
-      const res = await fetch("http://localhost:3000/portafolio/obtener", {
+      const res = await fetch("http://localhost:3000/api/portafolio/obtener", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ usuario_id: usuarioId }),
