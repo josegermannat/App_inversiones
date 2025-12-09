@@ -14,7 +14,7 @@ import { usePortafolio } from "../hooks/usePortfolio.js";
 import { useTransacciones } from "../hooks/useTransacciones";
 import { useEffect,useState } from "react";
 
-export function HomePage() {
+export function HomePage() { 
    const {cotizaciones} = useCotizacionesContext()
    const { usuario } = useUsuario() ?? {};
    const { portafolio } = usePortafolio(usuario?.id);
