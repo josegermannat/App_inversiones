@@ -1,6 +1,8 @@
 import { useState } from "react";
 
-const URL_API = "http://localhost:3000/api/usuarios"; // ajusta según tu backend
+import { API_URL } from "../config/api";
+
+const URL_API = `${API_URL}/usuarios`; // ajusta según tu backend
 
 export function useRegistro() {
   const [datosRegistro, setDatosRegistro] = useState(null);

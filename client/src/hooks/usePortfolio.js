@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 import { usePortfolioContext } from "../context/portfolioContext/PortfolioContext";
+import { API_URL } from "../config/api";
 
 export function usePortafolio(usuarioId) {
   const [portafolio, setPortafolio] = useState([]);
@@ -14,7 +15,7 @@ export function usePortafolio(usuarioId) {
     setError(null);
 
     try {
-      const res = await fetch("http://localhost:3000/api/portafolio/obtener", {
+      const res = await fetch(`${API_URL}/portafolio/obtener`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ usuario_id: usuarioId }),

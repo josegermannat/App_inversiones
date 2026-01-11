@@ -17,14 +17,15 @@ export function useDineroUsuario() {
 
   // 🔹 Cada vez que el usuario cambia → consultamos saldo real en el back
   useEffect(() => {
-    if (usuario?.id) {
-      consultarSaldo(usuario.id).then((data) => {
+    if (usuario?.id){
+      consultarSaldo(usuario.id).then((data) => {        
         setDinero(data.saldo_disponible || 0);
       })
     }else{
       setDinero(0)
     }
   }, [usuario]);
+
 
   // 🔹 Ingresar dinero
   const ingresarDinero = (monto) => {

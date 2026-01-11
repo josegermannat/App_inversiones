@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { API_URL } from "../config/api";
+
 export function useLogin() {
     const [datosLogin, setDatosLogin] = useState(null);
     const [cargandoLogin, setCargandoLogin] = useState(false);
@@ -9,7 +11,7 @@ export function useLogin() {
       setErrorLogin(null);
       setDatosLogin(null);
   
-      return fetch("http://localhost:3000/api/usuarios/login", {
+      return fetch(`${API_URL}/usuarios/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(credenciales),

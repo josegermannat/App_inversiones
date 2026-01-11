@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { accionesUSA } from "../constants/symbols";
 import { useUsuario } from "../context/usuarioContext/useUsuarioContext.js";
 import { usePortfolioContext } from "../context/portfolioContext/PortfolioContext";
+import { API_URL } from "../config/api";
 
 export function useCotizaciones() {
   const location = useLocation();
@@ -31,7 +32,7 @@ export function useCotizaciones() {
           return;
         }
 
-        const res = await fetch("http://localhost:3000/api/cotizaciones", {
+        const res = await fetch(`${API_URL}/cotizaciones`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ symbols: accionesUSA }),
@@ -66,7 +67,7 @@ export function useCotizaciones() {
             precio: c.precio_actual,
           }));
 
-          const response = await fetch("http://localhost:3000/api/portafolio/actualizar-valores", {
+          const response = await fetch(`${API_URL}/portafolio/actualizar-valores`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ usuario_id: usuario.id, precios }),

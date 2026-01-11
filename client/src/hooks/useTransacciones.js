@@ -1,7 +1,7 @@
 // hooks/useTransacciones.js
 import { useState } from 'react';
 
-const API_URL = 'http://localhost:3000/api';
+import { API_URL } from '../config/api';
 
 export const useTransacciones = () => {
   const [loading, setLoading] = useState(false);
